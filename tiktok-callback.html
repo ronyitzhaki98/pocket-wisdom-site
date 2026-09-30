@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connecting · Pocket Wisdom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p class="brand"><a href="index.html">Pocket Wisdom</a></p>
+<h1>Connecting TikTok…</h1>
+<p id="msg">Handing the sign-in back to the Pocket Wisdom app on this computer.</p>
+</main>
+<script>
+// TikTok only redirects to https pages, so this page forwards the sign-in result
+// to the Pocket Wisdom app listening on this same computer.
+(function () {
+  var q = location.search;
+  if (!q) { document.getElementById('msg').textContent = 'Nothing to hand over. You can close this tab.'; return; }
+  location.replace('http://localhost:8766/' + q);
+})();
+</script>
+</body>
+</html>
